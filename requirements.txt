@@ -1,0 +1,3 @@
+xlrd
+mecab-python3
+pytest

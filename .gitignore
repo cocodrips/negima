@@ -1,0 +1,16 @@
+ls
+*.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.idea
+*~
+
+__pycache__/
+*.py[cod]
+*$py.class
+.cache/
+.env
+
+
+
