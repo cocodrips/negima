@@ -7,7 +7,7 @@ root = os.path.abspath(os.path.dirname(__file__))
 
 def morpheme_merger():
     """
-    :rtype: MorphemeMerger 
+    :rtype: MorphemeMergercd 
     """
     filepath = os.path.join(root, 'test_rules.xlsx')
     _mm = MorphemeMerger()
@@ -24,7 +24,7 @@ def test_set_rule_tree_from_excel():
 
 
 def test_set_rule_tree_from_csv():
-    filepath = os.path.join(root, 'test_rules.csv')
+    filepath = os.path.join(root, 'test_rules.tsv')
     mm = MorphemeMerger()
     mm.set_rule_from_csv(filepath, sep='\t')
     assert len(mm.rule.keys()) == 6

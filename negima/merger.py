@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import enum
 import pandas as pd
 import copy
@@ -18,6 +17,9 @@ class Path:
         self.word = word
         self.base = base
         self.rule = rule
+
+    def __repr__(self):
+        return "<Path:{} {}>".format(self.word, repr(self.rule))
 
 
 class MorphemeMerger:
@@ -62,7 +64,7 @@ class MorphemeMerger:
 
     def set_rule_from_csv(self, rule_file_path, sep=','):
         """Create rule tree from csv file.
-        
+
         :param rule_file_path: Rule file path
         :param str sep: default=','
         :return: None
@@ -70,7 +72,7 @@ class MorphemeMerger:
         rules = pd.read_csv(rule_file_path, sep=sep)
         self._set_rule_tree(rules)
 
-    def set_rule_from_excel(self, rule_file_path, sheet_name):
+    def set_rule_from_excel(self, rule_file_path, sheet_name=0):
         """Create rule tree from excel file.
         
         :param str rule_file_path: Rule file path
@@ -184,12 +186,12 @@ class MorphemeMerger:
 
         '''最後の文字ではない場合'''
         best_result = None
-        best_score = None
+        best_priority = None
         best_i = 0
         for rule, branch in rules.items():
             if rule is None:
-                if best_result is None or branch < best_score:
-                    best_score = branch
+                if best_result is None or branch < best_priority:
+                    best_priority = branch
                     best_result = paths
                     best_i = i
                 continue
@@ -204,13 +206,17 @@ class MorphemeMerger:
                 result, _i, priority = self._rec_check(branch, morphemes[1:],
                                                        i + 1, _paths)
                 if result is not None:
-                    if best_result is None or priority < best_score:
-                        best_score = priority
+                    # print('score:', _i, priority, result)
+                    if ((best_result is None)
+                        or (priority < best_priority)
+                        or (priority == best_priority and _i > best_i)):
+                        best_priority = priority
                         best_result = result
                         best_i = _i
 
         if best_result is not None:
-            return best_result, best_i, best_score
+            # print('\tbest:', best_i, best_priority, best_result)
+            return best_result, best_i, best_priority
 
         '''最後までマッチ失敗'''
         return None, None, None
