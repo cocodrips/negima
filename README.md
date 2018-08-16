@@ -1,5 +1,5 @@
 # Negima
-
+Extract phases in Japanese text using rules.
 
 ## Installing
 

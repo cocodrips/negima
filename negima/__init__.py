@@ -9,9 +9,7 @@ Pythonのメソッドと引数
 :Ripositly: https://github.com/cocodrips/negima
 
 :abstract:
-TODO://
 '''
-__version__ = '0.1.0'
 name = "negima"
 
 from .parser import Morpheme, Parser

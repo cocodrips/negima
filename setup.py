@@ -13,7 +13,7 @@ def _requires_from_file(filename):
 
 setup(
     name='negima',
-    version='0.1.0',
+    version='0.1.1',
     url='https://github.com/cocodrips/negima',
     author='cocodrips',
     author_email='cocodrips@gmail.com',
@@ -25,10 +25,10 @@ setup(
         ],
     },
     long_description=readme,
-    license="MIT",
+    long_description_content_type='text/markdown',
+    license='MIT',
     packages=find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
+        'Programming Language :: Python :: 3',
     ],
 )
