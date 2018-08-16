@@ -12,6 +12,7 @@ Pythonのメソッドと引数
 TODO://
 '''
 __version__ = '0.1.0'
+name = "negima"
 
 from .parser import Morpheme, Parser
 from .merger import NormType, MorphemeMerger

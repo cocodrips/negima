@@ -32,7 +32,6 @@ def test_noun():
 
     for phase, correct in zip(noun_phases, corrects):
         target, posses = mm.get_rule_pattern(phase)
-        print(target, correct)
         assert target == correct
 
 

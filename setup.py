@@ -1,20 +1,24 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 try:
     with open('README.rst') as f:
         readme = f.read()
 except IOError:
     readme = ''
-    
+
+
+def _requires_from_file(filename):
+    return open(filename).read().splitlines()
+
+
 setup(
     name='negima',
     version='0.1.0',
+    url='https://github.com/cocodrips/negima',
     author='cocodrips',
-    install_requires=[
-        "mecab-python3>=0.7",
-        "pandas>=0.19",
-        "xlrd>=1.1.0"
-    ],
+    author_email='cocodrips@gmail.com',
+    description='Extract phases in Japanese text using rules.',
+    install_requires=_requires_from_file('requirements.txt'),
     extras_require={
         'dev': [
             'pytest>=3',
@@ -22,5 +26,9 @@ setup(
     },
     long_description=readme,
     license="MIT",
-    packages=['negima'],
+    packages=find_packages(),
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+    ],
 )
