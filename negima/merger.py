@@ -89,7 +89,7 @@ class MorphemeMerger:
         :param pandas.DataFrame rules: DataFrame object from rule file.
         :return: None
         """
-        poss_keys = ['pos0', 'pos1', 'pos2', 'pos3', 'pos4']
+        poss_keys = ['pos0', 'pos1', 'pos2', 'pos3', 'pos4', 'pos5']
 
         # Set default value
         rules['min'] = pd.to_numeric(rules['min']).fillna(1)
@@ -104,6 +104,9 @@ class MorphemeMerger:
         prev_id = None
         _id = None
         for i, rule in rules.iterrows():
+            # 空行があったらルール終了
+            if (rule[poss_keys] == 'nan').all():
+                break
             word = rule['id']
             if word != 'nan':
                 prev_id = _id
