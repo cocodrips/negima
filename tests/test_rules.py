@@ -5,12 +5,12 @@ from negima import MorphemeMerger
 root = os.path.abspath(os.path.dirname(__file__))
 rule_path = os.path.join(root, '..', 'rules')
 
-noun_phases = [
+noun_phrases = [
     "約5000人が国立競技場に駆けつけた",
     "場所がわかりにくいのでたどり着けなかった",
 ]
 
-independent_phases = [
+independent_phrases = [
     "新人研修のレベルは高い",
     "あのサイトはホテルの比較がしやすくないので好きではない",
 ]
@@ -30,8 +30,8 @@ def test_noun():
         ["場所"]
     ]
 
-    for phase, correct in zip(noun_phases, corrects):
-        target, posses = mm.get_rule_pattern(phase)
+    for phrase, correct in zip(noun_phrases, corrects):
+        target, posses = mm.get_rule_pattern(phrase)
         assert target == correct
 
 
@@ -42,17 +42,17 @@ def test_nouns():
         ["場所"]
     ]
 
-    for phase, correct in zip(noun_phases, corrects):
-        target, posses = mm.get_rule_pattern(phase)
+    for phrase, correct in zip(noun_phrases, corrects):
+        target, posses = mm.get_rule_pattern(phrase)
         assert target == correct
 
 
-def test_independent_phases():
-    mm = get_mm('3_independence_phase')
+def test_independent_phrases():
+    mm = get_mm('3_independent_phrase')
     corrects = [
         ['新人研修', 'レベルは高い'],
         ['サイト', 'ホテル', '比較がしやすくない', '好きではない'],
     ]
-    for phase, correct in zip(independent_phases, corrects):
-        target, posses = mm.get_rule_pattern(phase)
+    for phrase, correct in zip(independent_phrases, corrects):
+        target, posses = mm.get_rule_pattern(phrase)
         assert target == correct

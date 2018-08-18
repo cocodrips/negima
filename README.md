@@ -1,8 +1,8 @@
 # Negima
 
-Negima is a Python package to extract phases in Japanese text using rules.
+Negima is a Python package to extract phrases in Japanese text using rules.
 
-*Negimaは日本語の文章の中から定義したルールにあてはまるフェーズを抽出するPythonパッケージです。*
+*Negimaは日本語の文章の中から定義したルールにあてはまるフレーズを抽出するPythonパッケージです。*
 
 
 ## Installing
@@ -88,10 +88,10 @@ A rule file requires following 9 columns.
 
 
 You can add arbitrary columns to your rule file. other columns are just ignored.
-An example is available at `rule/3_independence_phase.csv`, which has a row example that describes an example sentence for the rule.
+An example is available at `rule/3_independent_phrase.csv`, which has a row example that describes an example sentence for the rule.
 
 *上記以外にも任意の列の追加が可能です。  
-`rule/3_independence_phase.csv`では`example`という列を追加し、ルールにあてはまるサンプルを記述しています。*
+`rule/3_independent_phrase.csv`では`example`という列を追加し、ルールにあてはまるサンプルを記述しています。*
 
 
 
@@ -131,8 +131,8 @@ Extract compound nouns.
 - `場所がわかりにくいのでたどり着けなかった` -> `場所`
 
 
-#### rule/3_independent_phase.csv
-Extract a little complex phase.   
+#### rule/3_independent_phrase.csv
+Extract a little complex phrase.   
 *形容詞や否定の「ない」を含んだ少し複雑なルールのフェーズの抽出*  
 
 - `新人研修のレベルは高い` -> `新人研修` `レベルは高い`
