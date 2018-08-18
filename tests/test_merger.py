@@ -32,12 +32,12 @@ def test_set_rule_tree_from_csv():
 
 def test_get_rule_pattern():
     mm = morpheme_merger()
-    words, posses = mm.get_rule_pattern('今日は職場についた時点で満点')
-    print(words, posses)
+    words, poss = mm.get_rule_pattern('今日は職場についた時点で満点')
+    print(words, poss)
     assert len(words) == 4
     assert words[0] == '今日は'
     assert words[1] == '職場'
-    assert posses[0] == [['名詞', '副詞可能', 'nan', 'nan', 'nan'],
+    assert poss[0] == [['名詞', '副詞可能', 'nan', 'nan', 'nan'],
                          ['助詞', '係助詞', 'nan', 'nan', 'nan']]
 
 
@@ -50,6 +50,6 @@ def test_get_rule_pattern():
 ])
 def test_duplicate_rule_pattern(src, dest):
     mm = morpheme_merger()
-    target, posses = mm.get_rule_pattern(src)
-    print(target, posses)
+    target, poss = mm.get_rule_pattern(src)
+    print(target, poss)
     assert target == dest

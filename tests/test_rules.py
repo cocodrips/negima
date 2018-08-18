@@ -31,7 +31,7 @@ def test_noun():
     ]
 
     for phrase, correct in zip(noun_phrases, corrects):
-        target, posses = mm.get_rule_pattern(phrase)
+        target, poss = mm.get_rule_pattern(phrase)
         assert target == correct
 
 
@@ -43,7 +43,7 @@ def test_nouns():
     ]
 
     for phrase, correct in zip(noun_phrases, corrects):
-        target, posses = mm.get_rule_pattern(phrase)
+        target, poss = mm.get_rule_pattern(phrase)
         assert target == correct
 
 
@@ -54,5 +54,5 @@ def test_independent_phrases():
         ['サイト', 'ホテル', '比較がしやすくない', '好きではない'],
     ]
     for phrase, correct in zip(independent_phrases, corrects):
-        target, posses = mm.get_rule_pattern(phrase)
+        target, poss = mm.get_rule_pattern(phrase)
         assert target == correct
