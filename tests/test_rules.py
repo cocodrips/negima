@@ -10,7 +10,7 @@ noun_phases = [
     "場所がわかりにくいのでたどり着けなかった",
 ]
 
-independence_phases = [
+independent_phases = [
     "新人研修のレベルは高い",
     "あのサイトはホテルの比較がしやすくないので好きではない",
 ]
@@ -47,12 +47,12 @@ def test_nouns():
         assert target == correct
 
 
-def test_independence_phases():
+def test_independent_phases():
     mm = get_mm('3_independence_phase')
     corrects = [
         ['新人研修', 'レベルは高い'],
         ['サイト', 'ホテル', '比較がしやすくない', '好きではない'],
     ]
-    for phase, correct in zip(independence_phases, corrects):
+    for phase, correct in zip(independent_phases, corrects):
         target, posses = mm.get_rule_pattern(phase)
         assert target == correct
