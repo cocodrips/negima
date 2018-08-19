@@ -13,7 +13,7 @@ def _requires_from_file(filename):
 
 setup(
     name='negima',
-    version='0.1.2',
+    version='0.1.3',
     url='https://github.com/cocodrips/negima',
     author='cocodrips',
     author_email='cocodrips@gmail.com',
