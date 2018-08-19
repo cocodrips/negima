@@ -17,7 +17,8 @@ setup(
     url='https://github.com/cocodrips/negima',
     author='cocodrips',
     author_email='cocodrips@gmail.com',
-    description='Extract phrases in Japanese text using rules.',
+    description='Extract phrases in Japanese text '
+                'by using the part-of-speeches based rules you defined.',
     python_requires='>=3.4',
     install_requires=[
         'mecab-python3>=0.7',

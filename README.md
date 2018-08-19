@@ -1,8 +1,8 @@
 # Negima
 
-Negima is a Python package to extract phrases in Japanese text using rules.
+Negima is a Python package to extract phrases in Japanese text by using the part-of-speeches based rules you defined.
 
-*Negimaは日本語の文章の中から定義したルールにあてはまるフレーズを抽出するPythonパッケージです。*
+*Negimaは日本語の文章の中から定義した品詞のルールにあてはまるフレーズを抽出するPythonパッケージです。*
 
 
 ## Installing
@@ -39,7 +39,7 @@ mm.set_rule_from_csv('rules/1_noun.csv')
 # # excel
 # mm.set_rule_from_excel('rules/rules.xlsx', sheet_name='1_noun')
 
-words, posses = mm.get_rule_pattern('今日はいい天気')
+words, _ = mm.get_rule_pattern('今日はいい天気')
 print(words)
 ```
 
@@ -51,10 +51,13 @@ $ python sample.py
 ## Rule
 
 You can define　rules in a csv, tsv or excel format.  
-A rule file requires following 9 columns.
+A rule file requires following 9 columns.  
+Define one of part-of-speeches each row.
 
-*ルールはcsv, tsv, excelファイルの形式で定義することができます。  
-ルールには以下の9種のカラムが必要になります。*  
+
+*ルールはcsv, tsv, excelファイルの形式で定義することができるます。  
+ルールには以下の9種のカラムが必要になります。また、1行には1形態素の品詞の情報を定義します。
+*  
 
 
 - id
