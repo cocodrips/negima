@@ -32,14 +32,14 @@ class MorphemeMerger:
         """
         :param str          text: Target text 
         :param NormType     norm: 
-        :return: (word, posses)
+        :return: (word, poss)
         """
         parser = Parser(mecab_args=self.mecab_args)
         morphemes = parser.parse(text)
 
         i = 0
         words = []
-        posses = []
+        poss = []
         n = len(morphemes)
         while i < n:
             paths, _i = self._rec_tree_check(morphemes, i, norm=norm)
@@ -50,11 +50,11 @@ class MorphemeMerger:
                     i += 1
 
                 words.append(''.join([path.word for path in paths]))
-                posses.append([path.rule.poss for path in paths])
+                poss.append([path.rule.poss for path in paths])
             else:
                 i += 1
 
-        return words, posses
+        return words, poss
 
     def _default_noun_rule(self):
         root = {}
@@ -89,7 +89,7 @@ class MorphemeMerger:
         :param pandas.DataFrame rules: DataFrame object from rule file.
         :return: None
         """
-        poss_keys = ['pos0', 'pos1', 'pos2', 'pos3', 'pos4']
+        poss_keys = ['pos0', 'pos1', 'pos2', 'pos3', 'pos4', 'pos5']
 
         # Set default value
         rules['min'] = pd.to_numeric(rules['min']).fillna(1)
@@ -104,6 +104,9 @@ class MorphemeMerger:
         prev_id = None
         _id = None
         for i, rule in rules.iterrows():
+            # 空行があったらルール終了
+            if (rule[poss_keys] == 'nan').all():
+                break
             word = rule['id']
             if word != 'nan':
                 prev_id = _id

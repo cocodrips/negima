@@ -13,12 +13,18 @@ def _requires_from_file(filename):
 
 setup(
     name='negima',
-    version='0.1.1',
+    version='0.1.3',
     url='https://github.com/cocodrips/negima',
     author='cocodrips',
     author_email='cocodrips@gmail.com',
-    description='Extract phases in Japanese text using rules.',
-    install_requires=_requires_from_file('requirements.txt'),
+    description='Extract phrases in Japanese text '
+                'by using the part-of-speeches based rules you defined.',
+    python_requires='>=3.4',
+    install_requires=[
+        'mecab-python3>=0.7',
+        'pandas>=0.19',
+        'xlrd>=1.1.0'
+    ],
     extras_require={
         'dev': [
             'pytest>=3',
