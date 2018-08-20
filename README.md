@@ -55,9 +55,8 @@ A rule file requires following 9 columns.
 Define one of part-of-speeches each row.
 
 
-*ルールはcsv, tsv, excelファイルの形式で定義することができるます。  
-ルールには以下の9種のカラムが必要になります。また、1行には1形態素の品詞の情報を定義します。
-*  
+*ルールはcsv, tsv, excelファイルの形式で定義することができます。  
+ルールには以下の9種のカラムが必要になります。また、1行には1形態素の品詞の情報を定義します。*  
 
 
 - id
